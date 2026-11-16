@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GP de São Paulo — Pit Wall</title>
+  
+  <!-- Google Fonts: Titillium Web -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- 1. TOPBAR (Header) -->
+  <header class="topbar">
+    <div class="logo">PIT <span>WALL</span></div>
+    <nav class="nav-links">
+      <a href="#pilotos">Pilotos</a>
+      <a href="#classificacao">Classificação</a>
+      <a href="#ingressos">Ingressos</a>
+    </nav>
+    <a href="#ingressos" class="btn-primary">GARANTIR INGRESSO</a>
+  </header>
+
+  <!-- 2. HERO + ZEBRA (A foto entra via CSS na classe .hero) -->
+  <section class="hero">
+    <div class="hero-content">
+      <small>21 NOVEMBRO / 23 NOVEMBRO 2025 · INTERLAGOS, SÃO PAULO</small>
+      <h1>GP DE<br><span>SÃO PAULO</span></h1>
+      <p>21 pilotos, 22 times na prova mais emblemática do automobilismo da América Latina.</p>
+      <div class="hero-actions">
+        <a href="#ingressos" class="btn-primary">GARANTIR MEU LUGAR</a>
+        <a href="#classificacao" class="btn-back">VER CLASSIFICAÇÃO</a>
+      </div>
+    </div>
+    
+    <div class="track-info">
+      <div class="info">
+        <span>71</span>
+        <small>VOLTAS</small>
+      </div>
+      <div class="info">
+        <span>4.309</span>
+        <small>KM</small>
+      </div>
+      <div class="info">
+        <span>15</span>
+        <small>CURVAS</small>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Zebra da pista -->
+  <div class="kerb"></div>
+
+  <!-- CONTEÚDO PRINCIPAL (CONTAINER) -->
+  <main class="container">
+
+    <!-- 3. GRID DE PILOTOS -->
+    <section id="pilotos">
+      <h2>🏎 GRID DE PILOTOS</h2>
+      <div class="menu-grid">
+        <div class="menu-card card-driver leclerc">
+          <div class="driver-number">16</div>
+          <div class="menu-card-title">CHARLES LECLERC</div>
+          <div class="menu-card-desc">Ferrari</div>
+        </div>
+        <div class="menu-card card-driver piastri">
+          <div class="driver-number">81</div>
+          <div class="menu-card-title">OSCAR PIASTRI</div>
+          <div class="menu-card-desc">McLaren</div>
+        </div>
+        <div class="menu-card card-driver russell">
+          <div class="driver-number">63</div>
+          <div class="menu-card-title">GEORGE RUSSELL</div>
+          <div class="menu-card-desc">Mercedes</div>
+        </div>
+        <div class="menu-card card-driver bortoleto">
+          <div class="driver-number">5</div>
+          <div class="menu-card-title">GABRIEL BORTOLETO</div>
+          <div class="menu-card-desc">Sauber</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CLASSIFICAÇÃO COM FILTROS E TABELA -->
+    <section id="classificacao">
+      <h2>🏆 CLASSIFICAÇÃO</h2>
+
+      <div class="filters">
+        <form method="get" action="#" class="filter-form">
+          <div class="filter-group">
+            <div class="filter-item">
+              <label for="busca">Buscar piloto</label>
+              <input type="text" id="busca" name="busca" placeholder="Nome do piloto...">
+            </div>
+            <div class="filter-item">
+              <label for="equipe">Equipe</label>
+              <select id="equipe" name="equipe">
+                <option value="">Todas as equipes</option>
+                <option value="ferrari">Ferrari</option>
+                <option value="mclaren">McLaren</option>
+                <option value="mercedes">Mercedes</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Pos</th>
+              <th>Piloto</th>
+              <th>Equipe</th>
+              <th>Pontos</th>
+              <th class="col-acoes">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1º</strong></td>
+              <td>Charles Leclerc</td>
+              <td>Ferrari</td>
+              <td>86 pts</td>
+              <td>
+                <div class="action-buttons">
+                  <a href="#" class="btn-edit">Detalhes</a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>2º</strong></td>
+              <td>Oscar Piastri</td>
+              <td>McLaren</td>
+              <td>80 pts</td>
+              <td>
+                <div class="action-buttons">
+                  <a href="#" class="btn-edit">Detalhes</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 5. FORMULÁRIO DE INGRESSOS -->
+    <section id="ingressos">
+      <h2>🎟 INGRESSOS</h2>
+      <form method="post" action="#">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="nome">Nome Completo <span style="color:var(--red)">*</span></label>
+            <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail <span style="color:var(--red)">*</span></label>
+            <input type="text" id="email" name="email" required placeholder="seu@email.com">
+          </div>
+
+          <div class="form-group">
+            <label for="setor">Setor Desejado <span style="color:var(--red)">*</span></label>
+            <select id="setor" name="setor" required>
+              <option value="">Selecione um setor</option>
+              <option value="a">Setor A (Reta Principal)</option>
+              <option value="g">Setor G (Reta Oposta)</option>
+              <option value="m">Setor M (Pit Lane)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="quantidade">Quantidade <span style="color:var(--red)">*</span></label>
+            <input type="number" id="quantidade" name="quantidade" required placeholder="1">
+          </div>
+
+          <div class="form-group full">
+            <label for="observacoes">Observações</label>
+            <textarea id="observacoes" name="observacoes" placeholder="Necessidades especiais ou preferências..."></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Confirmar Reserva</button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- 6. FOOTER -->
+  <footer>
+    <div class="container text-center">
+      <p class="text-muted">PITWALL · Projeto de estudo de HTML e CSS · Feito por Kauã Senuk Benetti</p>
+    </div>
+  </footer>
+
+</body>
+</html>

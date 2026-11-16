@@ -1,0 +1,470 @@
+/* =============================================
+DESAFIO PIT WALL: Folha de Estilos
+============================================= */
+
+/* -----------------------------------------------
+VARIÁVEIS E RESET (AULA 1)
+----------------------------------------------- */
+:root {
+    --primary: #121214;
+    --surface: #1e1e24;
+    --surface-light: #2a2a32;
+    --border: #33333d;
+    --red: #e10600;
+    --red-dark: #b30500;
+    --blue: #e10600;
+    --blue-dark: #b30500;
+    --text: #f0f2f5;
+    --text-muted: #a0a0b0;
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.4);
+    --shadow-md: 0 6px 16px rgba(0,0,0,0.5);
+    --radius: 8px;
+    --font: "Titillium Web", sans-serif;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    background-color: var(--primary);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 32px;
+}
+
+/* -----------------------------------------------
+1. HEADER / TOPBAR
+----------------------------------------------- */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--surface);
+    border-bottom: 2px solid var(--red);
+}
+
+.topbar .logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-style: italic;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.topbar .logo span {
+    color: var(--red);
+}
+
+.topbar .nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.topbar .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.topbar .nav-links a:hover {
+    color: #fff;
+}
+
+/* -----------------------------------------------
+2. HERO SECTION (ENQUADRAMENTO AJUSTADO)
+----------------------------------------------- */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 2rem;
+    min-height: 480px; /* Aumentado levemente para dar mais espaço à imagem */
+    position: relative;
+    
+    /* 
+       Camada 1: Gradient com faixa vermelha inclinada
+       Camada 2: Foto piloto.jpg alinhada em 85% center para focalizar o carro da Ferrari
+    */
+    background: 
+        linear-gradient(110deg, 
+            var(--primary) 0%, 
+            var(--primary) 58%, 
+            var(--red) 58%, 
+            var(--red) 60%, 
+            rgba(18, 18, 20, 0.35) 60%),
+        url("img/piloto.jpg") 85% center / cover no-repeat;
+}
+
+.hero-content {
+    max-width: 520px;
+    z-index: 2;
+}
+
+.hero-content small {
+    color: var(--red);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin: 0.5rem 0 1rem;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+.hero-content h1 span {
+    display: block;
+    color: var(--red);
+}
+
+.hero-content p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Números da pista no lado direito do Hero */
+.track-info {
+    display: flex;
+    gap: 1.5rem;
+    z-index: 2;
+}
+
+.track-info .info {
+    border-left: 2px solid var(--red);
+    padding-left: 0.8rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.track-info .info span {
+    font-size: 2rem;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 1;
+}
+
+.track-info .info small {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+/* Zebra da pista (Kerb) */
+.kerb {
+    height: 12px;
+    background: repeating-linear-gradient(
+        -45deg,
+        var(--red),
+        var(--red) 20px,
+        #ffffff 20px,
+        #ffffff 40px
+    );
+}
+
+/* -----------------------------------------------
+TIPOGRAFIA (h2)
+----------------------------------------------- */
+h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 2.5rem 0 1.5rem;
+    padding-bottom: .5rem;
+    border-bottom: 2px solid var(--border);
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+/* -----------------------------------------------
+3. CARDS DE PILOTOS
+----------------------------------------------- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+.menu-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    transition: transform .2s, box-shadow .2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.card-driver .driver-number {
+    font-size: 3rem;
+    font-weight: 900;
+    font-style: italic;
+    opacity: 0.25;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+}
+
+.card-driver.leclerc { border-top: 4px solid #e8002d; }
+.card-driver.piastri { border-top: 4px solid #ff8000; }
+.card-driver.russell { border-top: 4px solid #27f4d2; }
+.card-driver.bortoleto { border-top: 4px solid #00e701; }
+
+.menu-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.menu-card-desc {
+    font-size: .85rem;
+    color: var(--text-muted);
+}
+
+/* -----------------------------------------------
+FORMULÁRIOS & CAMPOS
+----------------------------------------------- */
+form {
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+label {
+    display: block;
+    margin-bottom: .4rem;
+    font-size: .9rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="url"],
+select,
+textarea {
+    width: 100%;
+    padding: .65rem .85rem;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    font-size: .95rem;
+    font-family: var(--font);
+    color: var(--text);
+    background: var(--primary);
+    transition: border-color .2s, box-shadow .2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(225, 6, 0, 0.25);
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 2rem;
+}
+
+.form-grid .form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-actions {
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+    margin-top: .5rem;
+    grid-column: 1 / -1;
+}
+
+/* -----------------------------------------------
+BOTÕES
+----------------------------------------------- */
+.btn-primary,
+.btn-edit,
+.btn-delete,
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .35rem;
+    padding: .65rem 1.4rem;
+    border: none;
+    border-radius: 6px;
+    font-size: .875rem;
+    font-weight: 700;
+    font-family: var(--font);
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    text-transform: uppercase;
+    transition: background-color .2s, transform .15s;
+}
+
+.btn-primary {
+    background: var(--red);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--red-dark);
+    transform: translateY(-1px);
+}
+
+.btn-back {
+    background: var(--surface-light);
+    color: #fff;
+}
+
+.btn-back:hover {
+    background: var(--border);
+}
+
+.btn-edit {
+    padding: .4rem .8rem;
+    background: var(--surface-light);
+    color: #fff;
+    font-size: .8rem;
+}
+
+.btn-edit:hover {
+    background: var(--red);
+}
+
+/* -----------------------------------------------
+FILTROS & TABELAS
+----------------------------------------------- */
+.filters {
+    background: var(--surface);
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius);
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+}
+
+.filter-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-item {
+    flex: 1;
+    min-width: 180px;
+}
+
+.table-container {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    background: #0a0a0c;
+    color: var(--text-muted);
+    font-size: .82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+tbody tr:hover {
+    background: var(--surface-light);
+}
+
+.col-acoes {
+    width: 100px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+/* -----------------------------------------------
+UTILITÁRIOS & FOOTER
+----------------------------------------------- */
+.text-center { text-align: center; }
+.text-muted { color: var(--text-muted); font-size: .9rem; }
+
+footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+}
+
+/* -----------------------------------------------
+RESPONSIVIDADE (CELULAR) [@media]
+----------------------------------------------- */
+@media (max-width: 768px) {
+    .container { padding: 16px; }
+    .topbar { flex-direction: column; gap: 1rem; }
+    .hero { 
+        flex-direction: column; 
+        text-align: center; 
+        padding: 2rem 1rem;
+        background: var(--primary);
+    }
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-actions { justify-content: center; }
+    .track-info { margin-top: 1.5rem; }
+    .form-grid { grid-template-columns: 1fr; }
+    .filter-group { flex-direction: column; }
+    .table-container { overflow-x: auto; }
+    table { min-width: 500px; }
+}
